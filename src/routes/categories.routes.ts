@@ -15,6 +15,12 @@ categoriesRoutes.post("/", (request, response) => {
   return response.status(201).json({ message: 'Category was success created!' });
 });
 
+// Endpoint to list categories
+categoriesRoutes.get("/", (request, response) => {
+  const categories = categoriesRepository.list();
+  return response.status(200).json({ categories });
+});
+
 
 
 export { categoriesRoutes };
